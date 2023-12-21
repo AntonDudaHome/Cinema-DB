@@ -11,6 +11,8 @@
 		676952CF2B336F790060F568 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676952CE2B336F790060F568 /* ContentView.swift */; };
 		676952D12B336F840060F568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 676952D02B336F840060F568 /* Assets.xcassets */; };
 		676952D42B336F840060F568 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 676952D32B336F840060F568 /* Preview Assets.xcassets */; };
+		676952E12B34273A0060F568 /* ButtonsComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676952E02B34273A0060F568 /* ButtonsComponentView.swift */; };
+		676952E42B34288A0060F568 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676952E32B34288A0060F568 /* View+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		676952CE2B336F790060F568 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		676952D02B336F840060F568 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		676952D32B336F840060F568 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		676952E02B34273A0060F568 /* ButtonsComponentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsComponentView.swift; sourceTree = "<group>"; };
+		676952E32B34288A0060F568 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,7 @@
 		676952C02B336F790060F568 = {
 			isa = PBXGroup;
 			children = (
+				676952DE2B3426F00060F568 /* Components */,
 				676952CB2B336F790060F568 /* Cinema DB */,
 				676952CA2B336F790060F568 /* Products */,
 			);
@@ -65,6 +70,31 @@
 				676952D32B336F840060F568 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		676952DE2B3426F00060F568 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				676952E22B3427E60060F568 /* Extensions */,
+				676952DF2B3427000060F568 /* Buttons */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		676952DF2B3427000060F568 /* Buttons */ = {
+			isa = PBXGroup;
+			children = (
+				676952E02B34273A0060F568 /* ButtonsComponentView.swift */,
+			);
+			path = Buttons;
+			sourceTree = "<group>";
+		};
+		676952E22B3427E60060F568 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				676952E32B34288A0060F568 /* View+Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,7 +167,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				676952E12B34273A0060F568 /* ButtonsComponentView.swift in Sources */,
 				676952CF2B336F790060F568 /* ContentView.swift in Sources */,
+				676952E42B34288A0060F568 /* View+Extension.swift in Sources */,
 				676952CD2B336F790060F568 /* Cinema_DBApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
