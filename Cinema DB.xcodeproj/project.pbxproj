@@ -15,6 +15,7 @@
 		676952E42B34288A0060F568 /* View+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676952E32B34288A0060F568 /* View+Extension.swift */; };
 		676952E62B342A390060F568 /* Constants in Resources */ = {isa = PBXBuildFile; fileRef = 676952E52B342A390060F568 /* Constants */; };
 		676952EA2B342AC60060F568 /* TextFields in Resources */ = {isa = PBXBuildFile; fileRef = 676952E92B342AC60060F568 /* TextFields */; };
+		676952EC2B342C7B0060F568 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 676952EB2B342C7B0060F568 /* Launch Screen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		676952E32B34288A0060F568 /* View+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extension.swift"; sourceTree = "<group>"; };
 		676952E52B342A390060F568 /* Constants */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Constants; sourceTree = "<group>"; };
 		676952E92B342AC60060F568 /* TextFields */ = {isa = PBXFileReference; lastKnownFileType = folder; path = TextFields; sourceTree = "<group>"; };
+		676952EB2B342C7B0060F568 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				676952CE2B336F790060F568 /* ContentView.swift */,
 				676952D02B336F840060F568 /* Assets.xcassets */,
 				676952D22B336F840060F568 /* Preview Content */,
+				676952EB2B342C7B0060F568 /* Launch Screen.storyboard */,
 			);
 			path = "Cinema DB";
 			sourceTree = "<group>";
@@ -164,6 +167,7 @@
 				676952D42B336F840060F568 /* Preview Assets.xcassets in Resources */,
 				676952E62B342A390060F568 /* Constants in Resources */,
 				676952EA2B342AC60060F568 /* TextFields in Resources */,
+				676952EC2B342C7B0060F568 /* Launch Screen.storyboard in Resources */,
 				676952D12B336F840060F568 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
