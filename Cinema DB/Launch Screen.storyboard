@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_image" translatesAutoresizingMaskIntoConstraints="NO" id="39u-oV-cST">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash_image" translatesAutoresizingMaskIntoConstraints="NO" id="39u-oV-cST">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="9" translatesAutoresizingMaskIntoConstraints="NO" id="obG-Y5-kRd">
@@ -25,26 +25,16 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cinema DB" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="prd-4R-wzt">
-                                <rect key="frame" x="16" y="389.33333333333331" width="361" height="73.666666666666686"/>
-                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="46"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="39u-oV-cST" secondAttribute="trailing" id="2l5-C0-RuC"/>
                             <constraint firstItem="Bcu-3y-fUS" firstAttribute="centerX" secondItem="obG-Y5-kRd" secondAttribute="centerX" id="5cz-MP-9tL"/>
-                            <constraint firstItem="prd-4R-wzt" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" constant="16" id="CO9-NS-hY2"/>
-                            <constraint firstItem="prd-4R-wzt" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="INt-Zz-SSv"/>
-                            <constraint firstItem="Bcu-3y-fUS" firstAttribute="trailing" secondItem="prd-4R-wzt" secondAttribute="trailing" constant="16" id="RAP-rF-2ev"/>
                             <constraint firstItem="obG-Y5-kRd" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" symbolic="YES" id="SfN-ll-jLj"/>
                             <constraint firstItem="39u-oV-cST" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="Ufo-52-PJf"/>
                             <constraint firstAttribute="bottom" secondItem="obG-Y5-kRd" secondAttribute="bottom" constant="20" id="Y44-ml-fuU"/>
                             <constraint firstItem="39u-oV-cST" firstAttribute="leading" secondItem="Bcu-3y-fUS" secondAttribute="leading" id="hUs-VM-RfH"/>
-                            <constraint firstItem="prd-4R-wzt" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="hc6-UI-I8W"/>
                             <constraint firstAttribute="bottom" secondItem="39u-oV-cST" secondAttribute="bottom" id="pR8-cL-zbT"/>
                         </constraints>
                     </view>
@@ -55,6 +45,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="splash_image" width="1290" height="2796"/>
+        <image name="splash_image" width="853" height="533"/>
     </resources>
 </document>

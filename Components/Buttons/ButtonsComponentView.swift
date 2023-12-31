@@ -19,7 +19,7 @@ public struct FilledButtonStyle: ButtonStyle {
     public func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
-            .font(.title)
+            .font(.title2)
             .frame(minHeight: 24)
             .padding(.vertical, 12)
             .background(
@@ -61,7 +61,8 @@ public struct StrokedButtonStyle: ButtonStyle {
     public func makeBody(configuration: Configuration) -> some View {
         configuration
             .label
-            .font(.title)
+            .font(.title2)
+            .bold()
             .frame(minHeight: 24)
             .padding(.vertical, 12)
             .background(

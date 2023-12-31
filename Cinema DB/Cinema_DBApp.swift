@@ -24,7 +24,7 @@ struct Cinema_DBApp: App {
   var body: some Scene {
     WindowGroup {
       NavigationView {
-        ContentView()
+          WelcomeView()
       }
     }
   }
