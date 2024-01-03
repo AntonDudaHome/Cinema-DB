@@ -35,6 +35,7 @@
 		6702065C2B40817300CAB08B /* FirebaseRemoteConfigSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 6702065B2B40817300CAB08B /* FirebaseRemoteConfigSwift */; };
 		6702065E2B40817300CAB08B /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 6702065D2B40817300CAB08B /* FirebaseStorage */; };
 		670206602B40817300CAB08B /* FirebaseStorageCombine-Community in Frameworks */ = {isa = PBXBuildFile; productRef = 6702065F2B40817300CAB08B /* FirebaseStorageCombine-Community */; };
+		675C9C522B45E75700BC34E0 /* Navigation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675C9C512B45E75700BC34E0 /* Navigation+Extension.swift */; };
 		676952CD2B336F790060F568 /* Cinema_DBApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676952CC2B336F790060F568 /* Cinema_DBApp.swift */; };
 		676952CF2B336F790060F568 /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 676952CE2B336F790060F568 /* WelcomeView.swift */; };
 		676952D12B336F840060F568 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 676952D02B336F840060F568 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		670206282B40803800CAB08B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		675C9C512B45E75700BC34E0 /* Navigation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Navigation+Extension.swift"; sourceTree = "<group>"; };
 		676952C92B336F790060F568 /* Cinema DB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Cinema DB.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		676952CC2B336F790060F568 /* Cinema_DBApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cinema_DBApp.swift; sourceTree = "<group>"; };
 		676952CE2B336F790060F568 /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				676952E32B34288A0060F568 /* View+Extension.swift */,
+				675C9C512B45E75700BC34E0 /* Navigation+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			files = (
 				67DB82AE2B41FFF800B48679 /* RegistrationScreen.swift in Sources */,
 				676952E12B34273A0060F568 /* ButtonsComponentView.swift in Sources */,
+				675C9C522B45E75700BC34E0 /* Navigation+Extension.swift in Sources */,
 				676952CF2B336F790060F568 /* WelcomeView.swift in Sources */,
 				676952E42B34288A0060F568 /* View+Extension.swift in Sources */,
 				676952CD2B336F790060F568 /* Cinema_DBApp.swift in Sources */,
