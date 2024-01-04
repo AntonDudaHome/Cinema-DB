@@ -18,6 +18,7 @@ struct WelcomeView: View {
                             Text("Welcome to Cinema DB")
                                 .font(.title)
                                 .fontWeight(.bold)
+                                .foregroundStyle(Color.cinemaBlack)
                             
                             
                             Text("Loren ipsom descript")
@@ -34,16 +35,19 @@ struct WelcomeView: View {
                             } label: {
                                 Text("Log In")
                                     .fillWidth()
+                                    .foregroundStyle(Color.cinemaBlack)
                             }
                             .buttonStyle(StrokedButtonStyle.custom(.mint))
 
                             Text("or")
+                                .foregroundStyle(Color.cinemaBlack)
                             
                             NavigationLink {
                                 RegistrationScreen()
                             } label: {
                                 Text("Register")
                                     .fillWidth()
+                                    .foregroundStyle(Color.cinemaBlack)
                             }
                             .buttonStyle(StrokedButtonStyle.custom(.indigo))
                         }

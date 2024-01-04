@@ -11,14 +11,19 @@ struct LoginScreen: View {
     
     @State private var email: String = ""
     @State private var password: String = ""
+   
+    private var isButtonEnable: Bool {
+        guard !email.isEmpty, !password.isEmpty else { return true }
+        return false
+    }
     
     var body: some View {
-        
         VStack {
             VStack(spacing: 16) {
                 VStack(alignment: .center) {
                     VStack {
-                        Text("Have account? Let's login!")
+                        Text("Already have an account? \n Let's go fun!")
+                            .multilineTextAlignment(.center)
                             .font(.title2)
                             .bold()
                     }
@@ -26,16 +31,24 @@ struct LoginScreen: View {
                     .frame(maxWidth: .infinity, alignment: .center)
                     
                     Spacer()
-                    VStack(spacing: 16) {
-                        VStack(alignment: .leading, spacing: 24) {
+                    VStack(spacing: 24) {
+                        VStack(alignment: .leading, spacing: 32) {
                             TextField("Email:", text: $email)
+                                .textFieldStyle(.plain)
+                                .keyboardType(.emailAddress)
                             
                             SecureField("Password", text: $password)
+                                .textFieldStyle(.plain)
+                                .keyboardType(.default)
                         }
-                        .padding(.all, 16)
+                        .padding(.vertical, 24)
+                        .padding(.horizontal, 32)
                     }
-                    .background(Color.white)
-                    .opacity(0.7)
+                    .background(
+                        RoundedRectangle(cornerRadius: 24, style: .continuous)
+                            .foregroundColor(.lightBlue)
+                            .opacity(0.85)
+                    )
                     
                     Spacer()
                     
@@ -45,7 +58,8 @@ struct LoginScreen: View {
                         Text("Login")
                             .fillWidth()
                     }
-                    .buttonStyle(StrokedButtonStyle.custom(.black))
+                    .buttonStyle(StrokedButtonStyle.custom(.cinemaBlack))
+                    .disabled(isButtonEnable)
                 }
             }
             .padding(.horizontal, 24)

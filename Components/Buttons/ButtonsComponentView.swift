@@ -30,7 +30,7 @@ public struct FilledButtonStyle: ButtonStyle {
     
     func stateColor(configuration: Configuration) -> Color {
         if !enabled {
-            return .gray
+            return .cinemaBlack
         }
         
         return configuration.isPressed ? filledColor.opacity(0.7) : filledColor
