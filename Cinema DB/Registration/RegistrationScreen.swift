@@ -59,9 +59,9 @@ struct RegistrationScreen: View {
                         print("start register")
                     } label: {
                         Text("Registration")
-                            .fillWidth()
+                            .strokedButtonTitle()
                     }
-                    .buttonStyle(StrokedButtonStyle.custom(.cinemaBlack))
+                    .buttonStyle(.plain)
                     .disabled(isRegistrationButtonEnable)
                 }
             }

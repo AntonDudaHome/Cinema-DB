@@ -1,0 +1,63 @@
+//
+//  InputStyle.swift
+//  
+//
+//  Created by Sergiy Loza on 23.10.2023.
+//
+
+import SwiftUI
+
+public struct InputStyle: ViewModifier {
+
+    let title: String?
+    let error: String?
+    let subtitle: String?
+
+
+    public func body(content: Content) -> some View {
+        VStack(alignment: .leading) {
+            if let title {
+                Text(title)
+                    .padding(.horizontal, 8)
+                    .font(.custom("8bitOperatorPlus-Bold", size: 14))
+                    .foregroundColor(.white)
+                    .colorMultiply(error == nil ? .cinemaBlack : .red)
+            }
+
+            content
+                .padding(.horizontal, 16)
+                .padding(.vertical, 12)
+                .background(.gray)
+                .cornerRadius(16)
+                .overlay {
+                    RoundedRectangle(cornerRadius: 16, style: .continuous)
+                        .stroke(error == nil ? .gray : .red, lineWidth: 1)
+                }
+
+            if let subtitleValue {
+                Text(subtitleValue)
+                    .padding(.horizontal, 8)
+                    .font(error == nil ? .custom("8bitOperatorPlus-Regular", size: 14) : .custom("8bitOperatorPlus-Bold", size: 14))
+                    .foregroundColor(.white)
+                    .colorMultiply(error == nil ? .cinemaBlack : .red)
+                    .transition(.opacity.combined(with: .offset(y: -16)))
+                    .id(subtitleValue)
+                    .zIndex(-1)
+            }
+        }
+    }
+    
+    private var subtitleValue: String? {
+        if let error {
+            return error
+        }
+        return subtitle
+    }
+}
+
+public extension View {
+
+    func withInputStyle(title: String?, error: String?, subtitle: String? = nil) -> some View {
+        self.modifier(InputStyle(title: title, error: error, subtitle: subtitle))
+    }
+}

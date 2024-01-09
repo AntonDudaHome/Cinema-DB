@@ -16,14 +16,11 @@ struct WelcomeView: View {
                     VStack(alignment: .center, spacing: 24) {
                         VStack(alignment: .leading) {
                             Text("Welcome to Cinema DB")
-                                .font(.title)
-                                .fontWeight(.bold)
+                                .font(.custom("TheyPerished", size: 28))
                                 .foregroundStyle(Color.cinemaBlack)
                             
-                            
                             Text("Loren ipsom descript")
-                                .font(.subheadline)
-                                .fontWeight(.medium)
+                                .font(.custom("8bitOperatorPlus-Regular", size: 16))
                                 .foregroundColor(Color.gray)
                             
                         }
@@ -34,24 +31,22 @@ struct WelcomeView: View {
                                 LoginScreen()
                             } label: {
                                 Text("Log In")
-                                    .fillWidth()
-                                    .foregroundStyle(Color.cinemaBlack)
+                                    .strokedButtonTitle()
                             }
-                            .buttonStyle(StrokedButtonStyle.custom(.mint))
+                            .buttonStyle(.plain)
 
                             Text("or")
+                                .font(.custom("8bitOperatorPlus-Bold", size: 14))
                                 .foregroundStyle(Color.cinemaBlack)
                             
                             NavigationLink {
                                 RegistrationScreen()
                             } label: {
                                 Text("Register")
-                                    .fillWidth()
-                                    .foregroundStyle(Color.cinemaBlack)
+                                    .strokedButtonTitle()
                             }
-                            .buttonStyle(StrokedButtonStyle.custom(.indigo))
+                            .buttonStyle(.plain)
                         }
-                        
                     }
                 }
                 .padding(.horizontal, 24)

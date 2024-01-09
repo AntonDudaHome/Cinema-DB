@@ -7,14 +7,43 @@
 
 import SwiftUI
 
+private enum EmailError: Error, LocalizedError {
+    case emailWrongFormat
+
+    var errorDescription: String? {
+        switch self {
+        case .emailWrongFormat:
+            return "Email is incorrect"
+        }
+    }
+}
+@MainActor
 struct LoginScreen: View {
+    enum Focus {
+        case email
+        case password
+    }
     
-    @State private var email: String = ""
-    @State private var password: String = ""
+    @State private var email: InputState = .init {
+        NonEmpty()
+        WrongFormatValidator(regex: Constants.Regexes.emailRegex)
+            .mapError { _ in
+                throw EmailError.emailWrongFormat
+            }
+    }
+    
+    @State private var password: InputState = .init {
+        NonEmpty()
+    }
+    
+    @FocusState private var focusState: Focus?
    
     private var isButtonEnable: Bool {
-        guard !email.isEmpty, !password.isEmpty else { return true }
-        return false
+        guard !email.text.isEmpty,
+              !password.text.isEmpty else {
+            return false
+        }
+        return true
     }
     
     var body: some View {
@@ -33,13 +62,30 @@ struct LoginScreen: View {
                     Spacer()
                     VStack(spacing: 24) {
                         VStack(alignment: .leading, spacing: 32) {
-                            TextField("Email:", text: $email)
-                                .textFieldStyle(.plain)
-                                .keyboardType(.emailAddress)
+                            InputView(placeholder: "Enter mail", text: $email.text)
+                                .withInputStyle(title: "Mail", error: email.errorMessage)
+                                .uiKeyboardType(.emailAddress)
+                                .uiTextColor(.cinemaBlack)
+                                .uiOnBeginEditing {
+                                    email.clearError()
+                                }
+                                .uiSubmitAction {
+                                    focusState = .password
+                                }
+                                .focused($focusState, equals: .email)
                             
-                            SecureField("Password", text: $password)
-                                .textFieldStyle(.plain)
-                                .keyboardType(.default)
+                            SecureInputView(placeholder: "Enter password", text: $password.text)
+                                .withInputStyle(title: "Password", error: password.errorMessage)
+                                .uiKeyboardType(.default)
+                                .uiReturnKeyType(.done)
+                                .uiOnBeginEditing {
+                                    password.clearError()
+                                }
+                                .uiSubmitAction {
+                                    focusState = nil
+                                    loginAction()
+                                }
+                                .focused($focusState, equals: .password)
                         }
                         .padding(.vertical, 24)
                         .padding(.horizontal, 32)
@@ -56,14 +102,15 @@ struct LoginScreen: View {
                         
                     } label: {
                         Text("Login")
-                            .fillWidth()
+                            .strokedButtonTitle()
                     }
-                    .buttonStyle(StrokedButtonStyle.custom(.cinemaBlack))
+                    .buttonStyle(.plain)
                     .disabled(isButtonEnable)
                 }
             }
             .padding(.horizontal, 24)
         }
+        .uiReturnKeyType(.next)
         .background(alignment: .top) {
             Image("login_illustration")
                 .resizable()
@@ -71,6 +118,17 @@ struct LoginScreen: View {
                 .opacity(0.8)
                 .ignoresSafeArea(edges: .all)
         }
+    }
+    
+    private func loginAction() {
+        email.validate()
+        password.validate()
+        
+        guard email.isValid, password.isValid else {
+            return
+        }
+        
+        print("Login action st")
     }
 }
 
