@@ -27,17 +27,17 @@ public struct InputStyle: ViewModifier {
             content
                 .padding(.horizontal, 16)
                 .padding(.vertical, 12)
-                .background(.gray)
+                .background(.clear)
                 .cornerRadius(16)
                 .overlay {
                     RoundedRectangle(cornerRadius: 16, style: .continuous)
-                        .stroke(error == nil ? .gray : .red, lineWidth: 1)
+                        .stroke(error == nil ? .black : .red, lineWidth: 1.5)
                 }
 
             if let subtitleValue {
                 Text(subtitleValue)
                     .padding(.horizontal, 8)
-                    .font(error == nil ? .custom("8bitOperatorPlus-Regular", size: 14) : .custom("8bitOperatorPlus-Bold", size: 14))
+                    .font(error == nil ? .custom("8bitOperatorPlus-Regular", size: 14) : .custom("8bitOperatorPlus-Regular", size: 12))
                     .foregroundColor(.white)
                     .colorMultiply(error == nil ? .cinemaBlack : .red)
                     .transition(.opacity.combined(with: .offset(y: -16)))

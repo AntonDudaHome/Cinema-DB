@@ -23,7 +23,7 @@ public struct InputView: View {
     public var body: some View {
         UIKitTextField(placeholder: placeholder, text: $text)
             .uiTextColor(.cinemaBlack)
-            .uiTextFont(UIFont(name: "8bitOperatorPlus-Bold", size: 14))
+            .uiTextFont(UIFont(name: "8bitOperatorPlus-Regular", size: 14))
             .uiTextPlaceholderAttributes(.init(color: .darkGray,
                                                font: UIFont(name: "8bitOperatorPlus-Bold", size: 14)!))
             .opacity(enabled ? 1.0 : 0.3)
@@ -48,7 +48,7 @@ public struct SecureInputView: View {
         HStack {
             UIKitTextField(placeholder: placeholder, isSecure: isSecure, text: $text)
                 .uiTextColor(.cinemaBlack)
-                .uiTextFont(UIFont(name: "8bitOperatorPlus-Bold", size: 14))
+                .uiTextFont(UIFont(name: "8bitOperatorPlus-Regular", size: 14))
                 .uiTextPlaceholderAttributes(.init(color: .darkGray,
                                                    font: UIFont(name: "8bitOperatorPlus-Bold", size: 14)!))
             Spacer()

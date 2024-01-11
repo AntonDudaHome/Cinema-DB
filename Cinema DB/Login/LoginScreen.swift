@@ -7,22 +7,16 @@
 
 import SwiftUI
 
-private enum EmailError: Error, LocalizedError {
-    case emailWrongFormat
 
-    var errorDescription: String? {
-        switch self {
-        case .emailWrongFormat:
-            return "Email is incorrect"
-        }
-    }
-}
 @MainActor
-struct LoginScreen: View {
+struct LoginScreen: View{
+    
     enum Focus {
         case email
         case password
     }
+    
+    @Environment(\.navigationRouter) private var router
     
     @State private var email: InputState = .init {
         NonEmpty()
@@ -41,27 +35,28 @@ struct LoginScreen: View {
     private var isButtonEnable: Bool {
         guard !email.text.isEmpty,
               !password.text.isEmpty else {
-            return false
+            return true
         }
-        return true
+        return false
     }
     
     var body: some View {
         VStack {
             VStack(spacing: 16) {
                 VStack(alignment: .center) {
-                    VStack {
-                        Text("Already have an account? \n Let's go fun!")
-                            .multilineTextAlignment(.center)
-                            .font(.title2)
-                            .bold()
+                    VStack(alignment: .center) {
+                        Text("Already have an account?")
+                            .font(.custom("8bitOperatorPlus-Bold", size: 22))
+                        
+                        Text("Let's go fun !")
+                            .font(.custom("TheyPerished", size: 28))
                     }
                     .padding(.top, 80)
                     .frame(maxWidth: .infinity, alignment: .center)
                     
                     Spacer()
                     VStack(spacing: 24) {
-                        VStack(alignment: .leading, spacing: 32) {
+                        VStack(alignment: .leading, spacing: 16) {
                             InputView(placeholder: "Enter mail", text: $email.text)
                                 .withInputStyle(title: "Mail", error: email.errorMessage)
                                 .uiKeyboardType(.emailAddress)
@@ -99,7 +94,7 @@ struct LoginScreen: View {
                     Spacer()
                     
                     Button {
-                        
+                        loginAction()
                     } label: {
                         Text("Login")
                             .strokedButtonTitle()
@@ -114,9 +109,9 @@ struct LoginScreen: View {
         .background(alignment: .top) {
             Image("login_illustration")
                 .resizable()
-                .scaledToFill()
+                .scaledToFit()
                 .opacity(0.8)
-                .ignoresSafeArea(edges: .all)
+                
         }
     }
     
@@ -132,10 +127,19 @@ struct LoginScreen: View {
     }
 }
 
-
-
 #Preview {
-    NavigationView {
+    NavigationControllerView {
         LoginScreen()
+    }
+}
+
+private enum EmailError: Error, LocalizedError {
+    case emailWrongFormat
+
+    var errorDescription: String? {
+        switch self {
+        case .emailWrongFormat:
+            return "Email is incorrect"
+        }
     }
 }
