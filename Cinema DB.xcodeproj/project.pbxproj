@@ -51,6 +51,7 @@
 		67E250052B4F60C800C2C28C /* Logger in Frameworks */ = {isa = PBXBuildFile; productRef = 67E250042B4F60C800C2C28C /* Logger */; };
 		67E250072B4F65D800C2C28C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E250062B4F65D800C2C28C /* RootView.swift */; };
 		67E250092B4F6B2F00C2C28C /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E250082B4F6B2F00C2C28C /* SplashView.swift */; };
+		67E2500C2B50854D00C2C28C /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E2500B2B50854D00C2C28C /* APIService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +81,7 @@
 		67E24FF82B4F54BA00C2C28C /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		67E250062B4F65D800C2C28C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		67E250082B4F6B2F00C2C28C /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
+		67E2500B2B50854D00C2C28C /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 		676952DE2B3426F00060F568 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				67E2500A2B50853000C2C28C /* Network */,
 				6716B7F72B4D2AB10045CC54 /* Modifiers */,
 				6716B7E02B4C6C000045CC54 /* Constants */,
 				6716B7DD2B4C6B490045CC54 /* Validation */,
@@ -255,6 +258,14 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		67E2500A2B50853000C2C28C /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				67E2500B2B50854D00C2C28C /* APIService.swift */,
+			);
+			path = Network;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -377,6 +388,7 @@
 				676952E42B34288A0060F568 /* View+Extension.swift in Sources */,
 				67E24FF92B4F54BA00C2C28C /* Navigation.swift in Sources */,
 				676952CD2B336F790060F568 /* Cinema_DBApp.swift in Sources */,
+				67E2500C2B50854D00C2C28C /* APIService.swift in Sources */,
 				67DB82AB2B41FFDD00B48679 /* LoginScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
