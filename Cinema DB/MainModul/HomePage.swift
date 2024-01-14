@@ -13,27 +13,27 @@ struct HomePage: View {
     @EnvironmentObject private var authManager: AuthManager
     @Environment(\.navigationRouter) private var router
     @StateObject private var movieAPI = API()
+    @State private var isTheEnd: Bool = false
     @State var movies: [Movie] = []
     @State private var pageNumber: Int = 1
     @State private var totalPages: Int = 0
     
+    
     var body: some View {
         ScrollView {
-            VStack {
-                ForEach(movies, id: \.self) { data in
+            LazyVStack {
+                ForEach(movies) { data in
                     CinemaCardView(cinemaData: data)
-                    
-                    
-                    //                        .onTapGesture {
-                    //                            router.push(destination: DetailsScreen(movie: data))
-                    //                        }
+                        .onAppear {
+                            if let index = movies.firstIndex(where: { $0.id == data.id }), index == movies.count - 1 {
+                                self.pageNumber += 1                                
+                                getMovies(page: pageNumber)
+                            }
+                        }
                 }
             }
             .padding(.horizontal, 16)
         }
-        //        .onScrolledToBottom {
-        //            print("!!!!!!!!!!!!!!!!!!!!!! kjdnfjsdnfjnk")
-        //        }
         .navigationTitle("Cinema DB")
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
@@ -61,7 +61,7 @@ struct HomePage: View {
     private func getMovies(page: Int) {
         movieAPI.fetchMovies(page: page) { data in
             totalPages = data.totalPage
-            movies = data.results
+            movies += data.results
         }
     }
     
