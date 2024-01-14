@@ -6,6 +6,8 @@
 //
 
 import SwiftUI
+import Logger
+import FirebaseAuth
 
 
 @MainActor
@@ -17,6 +19,7 @@ struct LoginScreen: View{
     }
     
     @Environment(\.navigationRouter) private var router
+    @EnvironmentObject private var authManager: AuthManager
     
     @State private var email: InputState = .init {
         NonEmpty()
@@ -123,7 +126,18 @@ struct LoginScreen: View{
             return
         }
         
-        print("Login action st")
+        Task {
+            do {
+                _ = try await authManager.signInWith(email: email.text, password: password.text)
+                
+                await MainActor.run {
+                    router.push(destination: HomePage(), replaceStack: true)
+                }
+              
+            } catch {
+                Log(error: error)
+            }
+        }
     }
 }
 

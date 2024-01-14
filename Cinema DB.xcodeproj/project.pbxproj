@@ -52,6 +52,11 @@
 		67E250072B4F65D800C2C28C /* RootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E250062B4F65D800C2C28C /* RootView.swift */; };
 		67E250092B4F6B2F00C2C28C /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E250082B4F6B2F00C2C28C /* SplashView.swift */; };
 		67E2500C2B50854D00C2C28C /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E2500B2B50854D00C2C28C /* APIService.swift */; };
+		67E2500F2B52237A00C2C28C /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 67E2500E2B52237A00C2C28C /* Kingfisher */; };
+		67E250112B53124000C2C28C /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E250102B53124000C2C28C /* AuthService.swift */; };
+		67E250132B5379B500C2C28C /* DetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E250122B5379B500C2C28C /* DetailsScreen.swift */; };
+		67E250152B53AF9500C2C28C /* CinemaCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E250142B53AF9500C2C28C /* CinemaCardView.swift */; };
+		67E250172B53B2CC00C2C28C /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E250162B53B2CC00C2C28C /* Binding+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -82,6 +87,10 @@
 		67E250062B4F65D800C2C28C /* RootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootView.swift; sourceTree = "<group>"; };
 		67E250082B4F6B2F00C2C28C /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		67E2500B2B50854D00C2C28C /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		67E250102B53124000C2C28C /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
+		67E250122B5379B500C2C28C /* DetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreen.swift; sourceTree = "<group>"; };
+		67E250142B53AF9500C2C28C /* CinemaCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaCardView.swift; sourceTree = "<group>"; };
+		67E250162B53B2CC00C2C28C /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +107,7 @@
 				67E24FED2B4F523D00C2C28C /* FirebaseMessaging in Frameworks */,
 				67E24FDB2B4F523D00C2C28C /* FirebaseAppDistribution in Frameworks */,
 				67E24FE52B4F523D00C2C28C /* FirebaseFirestore in Frameworks */,
+				67E2500F2B52237A00C2C28C /* Kingfisher in Frameworks */,
 				67E24FDF2B4F523D00C2C28C /* FirebaseCrashlytics in Frameworks */,
 				67E24FF12B4F523D00C2C28C /* FirebaseRemoteConfig in Frameworks */,
 				67E24FE92B4F523D00C2C28C /* FirebaseInAppMessaging in Frameworks */,
@@ -225,6 +235,7 @@
 			children = (
 				676952E32B34288A0060F568 /* View+Extension.swift */,
 				675C9C512B45E75700BC34E0 /* Navigation+Extension.swift */,
+				67E250162B53B2CC00C2C28C /* Binding+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -249,6 +260,8 @@
 			isa = PBXGroup;
 			children = (
 				67E24FCF2B4F349100C2C28C /* HomePage.swift */,
+				67E250122B5379B500C2C28C /* DetailsScreen.swift */,
+				67E250142B53AF9500C2C28C /* CinemaCardView.swift */,
 			);
 			path = MainModul;
 			sourceTree = "<group>";
@@ -264,6 +277,7 @@
 			isa = PBXGroup;
 			children = (
 				67E2500B2B50854D00C2C28C /* APIService.swift */,
+				67E250102B53124000C2C28C /* AuthService.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -305,6 +319,7 @@
 				67E24FF42B4F523D00C2C28C /* Google-Mobile-Ads-SDK */,
 				67E24FF62B4F523D00C2C28C /* GoogleSignIn */,
 				67E250042B4F60C800C2C28C /* Logger */,
+				67E2500E2B52237A00C2C28C /* Kingfisher */,
 			);
 			productName = "Cinema DB";
 			productReference = 676952C92B336F790060F568 /* Cinema DB.app */;
@@ -340,6 +355,7 @@
 			packageReferences = (
 				67E24FD12B4F523D00C2C28C /* XCRemoteSwiftPackageReference "firebase-ios-sdk-xcframeworks" */,
 				67E250002B4F608500C2C28C /* XCLocalSwiftPackageReference "Logger" */,
+				67E2500D2B52237A00C2C28C /* XCRemoteSwiftPackageReference "Kingfisher" */,
 			);
 			productRefGroup = 676952CA2B336F790060F568 /* Products */;
 			projectDirPath = "";
@@ -378,14 +394,18 @@
 				6716B7DC2B4C6B350045CC54 /* InputTextViewStyle.swift in Sources */,
 				675C9C522B45E75700BC34E0 /* Navigation+Extension.swift in Sources */,
 				676952CF2B336F790060F568 /* WelcomeView.swift in Sources */,
+				67E250112B53124000C2C28C /* AuthService.swift in Sources */,
 				67E24FD02B4F349100C2C28C /* HomePage.swift in Sources */,
 				6716B7D92B4C6B350045CC54 /* InputTextViewState.swift in Sources */,
 				6716B7E22B4C6C160045CC54 /* Constants.swift in Sources */,
 				67E250072B4F65D800C2C28C /* RootView.swift in Sources */,
 				6716B7F92B4D2AD60045CC54 /* ButtonModifier.swift in Sources */,
+				67E250132B5379B500C2C28C /* DetailsScreen.swift in Sources */,
+				67E250152B53AF9500C2C28C /* CinemaCardView.swift in Sources */,
 				6716B7DA2B4C6B350045CC54 /* InputTextViews.swift in Sources */,
 				6716B7DF2B4C6B490045CC54 /* Validators.swift in Sources */,
 				676952E42B34288A0060F568 /* View+Extension.swift in Sources */,
+				67E250172B53B2CC00C2C28C /* Binding+Extension.swift in Sources */,
 				67E24FF92B4F54BA00C2C28C /* Navigation.swift in Sources */,
 				676952CD2B336F790060F568 /* Cinema_DBApp.swift in Sources */,
 				67E2500C2B50854D00C2C28C /* APIService.swift in Sources */,
@@ -624,6 +644,14 @@
 				minimumVersion = 10.19.0;
 			};
 		};
+		67E2500D2B52237A00C2C28C /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.10.2;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -726,6 +754,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 67E250002B4F608500C2C28C /* XCLocalSwiftPackageReference "Logger" */;
 			productName = Logger;
+		};
+		67E2500E2B52237A00C2C28C /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 67E2500D2B52237A00C2C28C /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

@@ -12,11 +12,6 @@ import FirebaseCore
 class AppDelegate: NSObject, UIApplicationDelegate {
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
-        
-        if let file = Bundle.main.path(forResource: "GoogleService-Info", ofType: "plist"),
-           let options = FirebaseOptions(contentsOfFile: file) {
-            FirebaseApp.configure(options: options)
-        }
         return true
     }
 
@@ -55,7 +50,7 @@ final class SceneDelegate: NSObject, UIWindowSceneDelegate {
             .foregroundColor: UIColor(.cinemaBlack)
         ]
         navigationBarAppearance.titleTextAttributes = [
-            .font: UIFont(name: "8bitOperatorPlus-Bold", size: 28)!,
+            .font: UIFont(name: "8bitOperatorPlus-Bold", size: 18)!,
             .foregroundColor: UIColor(.cinemaBlack)
         ]
 

@@ -6,57 +6,26 @@
 //
 
 import SwiftUI
+import Firebase
 
 enum Destinations: Hashable {
-    
     case welcome
 }
-
-//#if DEBUG
-//
-//let mockServiceProvider: ServiceProvider = ServiceProvider(userManagmentBaseURL: URL(string: "https://user-management-api-dev.nela-sound.com")!,
-//                                                           deviceManagmentBaseURL: URL(string: "https://subscription-management-api-dev.nela-sound.com")!,
-//                                                           statisticManagmentBaseURL: URL(string: "https://audio-api-dev.nela-sound.com")!) {
-//
-//}
-//
-//#endif
-//
-//class LoadingStateHolder: ObservableObject {
-//
-//    @MainActor @Published var loading = false
-//}
-//
-//private extension URL {
-//
-//    static var userManagment: URL = URL(string: "https://user-management-api-dev.nela-sound.com")!
-//    static var deviceManagment: URL = URL(string: "https://subscription-management-api-dev.nela-sound.com")!
-//    static var statisticManagment: URL = URL(string: "https://audio-api-dev.nela-sound.com")!
-//}
 
 @MainActor
 struct RootView: View {
     
-    //@State private var alertState: AlertState = .init()
     @State private var splash = true
-    
-    //    @StateObject private var loading: LoadingStateHolder = .init()
-    //    @StateObject private var provider: ServiceProvider
     @StateObject var router: NavigationRouter
-    //    @StateObject var networkMonitor = NetworkMonitor()
-    //    private var dataManager: DataManager {
-    //        provider.dataManager
-    //    }
+    @StateObject var authManager: AuthManager
     
     init() {
+        FirebaseApp.configure()
         let router = NavigationRouter()
-        //        let provider = ServiceProvider(userManagmentBaseURL: .userManagment,
-        //                                       deviceManagmentBaseURL: .deviceManagment,
-        //                                       statisticManagmentBaseURL: .statisticManagment) { [weak router] in
-        //            router?.popTo(destintion: WelcomeScreen())
-        //        }
-        //        self._provider = .init(wrappedValue: provider)
+        let authManager = AuthManager()
+        
         self._router = .init(wrappedValue: router)
+        self._authManager = StateObject(wrappedValue: authManager)
     }
     
     var body: some View {
@@ -77,6 +46,7 @@ struct RootView: View {
                     }
                 }
         }
+        .environmentObject(authManager)
         .overlay(alignment: .center) {
             if splash {
                 SplashView()
@@ -92,7 +62,13 @@ struct RootView: View {
     }
     
     private func selectDisplayingScene() async {
-        router.push(destination: WelcomeView())
+        await taskSleep(seconds: 0.5)
+        
+        if  authManager.authState != .signedOut {
+            router.push(destination: HomePage(), replaceStack: true)
+        } else {
+            router.push(destination: WelcomeView())
+        }
     }
 }
 
@@ -106,5 +82,23 @@ extension EnvironmentValues {
     var isLoading: Binding<Bool> {
         get { self[LoadingKey.self] }
         set { self[LoadingKey.self] = newValue }
+    }
+}
+
+func taskSleep(_ start: CFAbsoluteTime = CFAbsoluteTimeGetCurrent(), seconds: Double) async {
+    let end = CFAbsoluteTimeGetCurrent()
+    let delta = end - start
+    let timeLeft = seconds - delta
+    if timeLeft > 0 {
+        do {
+            if #available(iOS 16.0, *) {
+                try await Task.sleep(for: .seconds(timeLeft))
+            } else {
+                let duration = UInt64(timeLeft * 1_000_000_000)
+                try await Task.sleep(nanoseconds: duration)
+            }
+        } catch {
+            debugPrint("Failed to wait with \(error.localizedDescription)")
+        }
     }
 }

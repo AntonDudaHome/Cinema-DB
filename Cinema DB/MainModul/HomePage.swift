@@ -6,13 +6,110 @@
 //
 
 import SwiftUI
+import Kingfisher
 
 struct HomePage: View {
+    
+    @EnvironmentObject private var authManager: AuthManager
+    @Environment(\.navigationRouter) private var router
+    @StateObject private var movieAPI = API()
+    @State var movies: [Movie] = []
+    @State private var pageNumber: Int = 1
+    @State private var totalPages: Int = 0
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ScrollView {
+            VStack {
+                ForEach(movies, id: \.self) { data in
+                    CinemaCardView(cinemaData: data)
+                    
+                    
+                    //                        .onTapGesture {
+                    //                            router.push(destination: DetailsScreen(movie: data))
+                    //                        }
+                }
+            }
+            .padding(.horizontal, 16)
+        }
+        //        .onScrolledToBottom {
+        //            print("!!!!!!!!!!!!!!!!!!!!!! kjdnfjsdnfjnk")
+        //        }
+        .navigationTitle("Cinema DB")
+        .toolbar {
+            ToolbarItem(placement: .topBarTrailing) {
+                Button {
+                    signOut()
+                } label: {
+                    Text("Sign Out")
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .onAppear {
+            getMovies(page: pageNumber)
+        }
+    }
+    
+    func loadMoreContent(currentItem item: Movie){
+        let thresholdIndex = self.movies.index(self.movies.endIndex, offsetBy: -1)
+        if thresholdIndex == item.id, (pageNumber + 1) <= totalPages {
+            pageNumber += 1
+            getMovies(page: pageNumber)
+        }
+    }
+    
+    private func getMovies(page: Int) {
+        movieAPI.fetchMovies(page: page) { data in
+            totalPages = data.totalPage
+            movies = data.results
+        }
+    }
+    
+    private func signOut() {
+        Task {
+            do {
+                try await authManager.signOut()
+                await MainActor.run {
+                    router.push(destination: WelcomeView(), replaceStack: true)
+                }
+            }
+            catch {
+                print("Error: \(error)")
+            }
+        }
     }
 }
 
+struct RemoteImage: View {
+    let urlString: String
+    
+    var body: some View {
+        KFImage(URL(string: urlString))
+            .resizable()
+            .placeholder {
+                Color.gray
+            }
+            .aspectRatio(contentMode: .fit)
+            .cornerRadius(12, corners: .allCorners)
+    }
+}
+
+#if DEBUG
 #Preview {
     HomePage()
+}
+#endif
+
+
+extension ScrollView {
+    func onScrolledToBottom(perform action: @escaping() -> Void) -> some View {
+        return ScrollView<LazyVStack> {
+            LazyVStack {
+                self.content
+                Rectangle().size(.zero).onAppear {
+                    action()
+                }
+            }
+        }
+    }
 }

@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>TMDB_API_KEY</key>
+	<string>b47a2c558269bf96f6723a5d3ec614d6</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>TheyPerished.ttf</string>

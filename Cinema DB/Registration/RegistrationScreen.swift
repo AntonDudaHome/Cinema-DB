@@ -17,7 +17,9 @@ struct RegistrationScreen: View {
         case password
         case repeatPassword
     }
+    
     @Environment(\.navigationRouter) private var router
+    @EnvironmentObject private var authManager: AuthManager
     
     @State private var email: InputState = .init {
         NonEmpty()
@@ -147,7 +149,7 @@ struct RegistrationScreen: View {
         
         Task {
             do {
-                try await Auth.auth().createUser(withEmail: email.text, password: password.text)
+                _ = try await authManager.signUpWith(email: email.text, password: password.text)
                 await MainActor.run {
                     router.push(destination: HomePage(), replaceStack: true)
                 }
