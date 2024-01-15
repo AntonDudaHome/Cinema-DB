@@ -22,14 +22,19 @@ struct HomePage: View {
     var body: some View {
         ScrollView {
             LazyVStack {
-                ForEach(movies) { data in
-                    CinemaCardView(cinemaData: data)
-                        .onAppear {
-                            if let index = movies.firstIndex(where: { $0.id == data.id }), index == movies.count - 1 {
-                                self.pageNumber += 1                                
-                                getMovies(page: pageNumber)
+                ForEach(movies, id: \.id) { data in
+                    Button {
+                        router.push(destination: DetailsScreen(movie: data))
+                    } label: {
+                        CinemaCardView(cinemaData: data)
+                            .onAppear {
+                                if let index = movies.firstIndex(where: { $0.id == data.id }), index == movies.count - 1 {
+                                    print("Index - \(index) movies count - \(movies.count) page - \(pageNumber)")
+                                    self.pageNumber += 1
+                                    getMovies(page: pageNumber)
+                                }
                             }
-                        }
+                    }
                 }
             }
             .padding(.horizontal, 16)
@@ -46,22 +51,16 @@ struct HomePage: View {
             }
         }
         .onAppear {
-            getMovies(page: pageNumber)
-        }
-    }
-    
-    func loadMoreContent(currentItem item: Movie){
-        let thresholdIndex = self.movies.index(self.movies.endIndex, offsetBy: -1)
-        if thresholdIndex == item.id, (pageNumber + 1) <= totalPages {
-            pageNumber += 1
-            getMovies(page: pageNumber)
+            if movies.isEmpty {
+                getMovies(page: pageNumber)
+            }
         }
     }
     
     private func getMovies(page: Int) {
         movieAPI.fetchMovies(page: page) { data in
             totalPages = data.totalPage
-            movies += data.results
+            movies.append(contentsOf: data.results)
         }
     }
     
@@ -99,17 +98,3 @@ struct RemoteImage: View {
     HomePage()
 }
 #endif
-
-
-extension ScrollView {
-    func onScrolledToBottom(perform action: @escaping() -> Void) -> some View {
-        return ScrollView<LazyVStack> {
-            LazyVStack {
-                self.content
-                Rectangle().size(.zero).onAppear {
-                    action()
-                }
-            }
-        }
-    }
-}

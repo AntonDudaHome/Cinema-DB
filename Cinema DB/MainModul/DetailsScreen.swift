@@ -45,7 +45,7 @@ struct DetailsScreen: View {
         }
         .navigationTitle(movie.title)
         .onAppear {
-            movieAPI.fetchMovieDetails(with: movie.id) { data in
+            movieAPI.fetchMovieDetails(with: movie.movieID) { data in
                 self.movieDetails = data
             }
         }
@@ -55,7 +55,7 @@ struct DetailsScreen: View {
 #if DEBUG
 #Preview {
     NavigationControllerView {
-        DetailsScreen(movie: Movie(id: 12, title: "Middle Here", posterPath: ""))
+        DetailsScreen(movie: Movie(movieID: 12, title: "Middle Here", posterPath: ""))
     }
 }
 #endif

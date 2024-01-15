@@ -32,5 +32,5 @@ struct CinemaCardView: View {
 }
 
 #Preview {
-    CinemaCardView(cinemaData: Movie(id: 2, title: "", posterPath: ""))
+    CinemaCardView(cinemaData: Movie(movieID: 2, title: "", posterPath: ""))
 }

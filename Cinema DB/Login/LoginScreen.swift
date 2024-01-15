@@ -109,13 +109,6 @@ struct LoginScreen: View{
             .padding(.horizontal, 24)
         }
         .uiReturnKeyType(.next)
-        .background(alignment: .top) {
-            Image("login_illustration")
-                .resizable()
-                .scaledToFit()
-                .opacity(0.8)
-                
-        }
     }
     
     private func loginAction() {
@@ -131,6 +124,7 @@ struct LoginScreen: View{
                 _ = try await authManager.signInWith(email: email.text, password: password.text)
                 
                 await MainActor.run {
+                    
                     router.push(destination: HomePage(), replaceStack: true)
                 }
               

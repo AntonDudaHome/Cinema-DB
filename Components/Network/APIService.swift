@@ -8,10 +8,6 @@
 import Foundation
 import Logger
 
-enum NetworkEnvironment: String {
-    case openWeather = "https://imdb-api.com/en/API"
-}
-
 @MainActor
 class API: ObservableObject {
     
@@ -58,13 +54,15 @@ class API: ObservableObject {
 
 
 struct Movie: Codable, Identifiable, Hashable {
-    let id: Int
+    let id = UUID()
+    let movieID: Int
     let title: String
     let posterPath: String
    
     
     enum CodingKeys: String, CodingKey {
-        case id, title
+        case movieID = "id"
+        case title
         case posterPath = "poster_path"
     }
 }

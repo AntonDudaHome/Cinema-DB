@@ -127,12 +127,6 @@ struct RegistrationScreen: View {
             .padding(.horizontal, 24)
         }
         .uiReturnKeyType(.next)
-        .background(alignment: .top) {
-            Image("register_illustration")
-                .resizable()
-                .scaledToFit()
-                .opacity(0.8)
-        }
     }
     
     private func registrationAction() {
