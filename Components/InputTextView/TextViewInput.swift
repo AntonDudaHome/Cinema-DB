@@ -1,13 +1,12 @@
 //
-//  InputViews.swift
-//  
+//  TextViewInput.swift
+//  Cinema DB
 //
-//  Created by Sergiy Loza on 19.10.2023.
+//  Created by Anton.Duda on 17.01.2024.
 //
 
 import SwiftUI
 
-/// Default input view to be used in app
 public struct InputView: View {
 
     let placeholder: String
@@ -30,7 +29,6 @@ public struct InputView: View {
     }
 }
 
-/// Secure input view to be used in app
 public struct SecureInputView: View {
 
     let placeholder: String

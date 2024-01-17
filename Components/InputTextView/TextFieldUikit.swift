@@ -1,8 +1,8 @@
 //
-//  UIKitTextField.swift
+//  TextFieldUikit.swift
+//  Cinema DB
 //
-//
-//  Created by Sergiy Loza on 19.10.2023.
+//  Created by Anton.Duda on 17.01.2024.
 //
 
 import SwiftUI

@@ -1,8 +1,8 @@
 //
-//  InputStyle.swift
-//  
+//  TextViewInputStyle.swift
+//  Cinema DB
 //
-//  Created by Sergiy Loza on 23.10.2023.
+//  Created by Anton.Duda on 17.01.2024.
 //
 
 import SwiftUI
@@ -61,3 +61,4 @@ public extension View {
         self.modifier(InputStyle(title: title, error: error, subtitle: subtitle))
     }
 }
+

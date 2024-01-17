@@ -1,8 +1,8 @@
 //
-//  Validators.swift
-//  
+//  Validation.swift
+//  Cinema DB
 //
-//  Created by Sergiy Loza on 23.10.2023.
+//  Created by Anton.Duda on 17.01.2024.
 //
 
 import Foundation
@@ -83,3 +83,4 @@ public struct WrongFormatValidator: InputValidator {
         }
     }
 }
+

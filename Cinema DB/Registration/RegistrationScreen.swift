@@ -58,9 +58,11 @@ struct RegistrationScreen: View {
                     VStack(alignment: .center) {
                         Text("Haven't account? ")
                             .font(.custom("8bitOperatorPlus-Bold", size: 22))
+                            .multilineTextAlignment(.center)
                         
                         Text("Let's Join Us !")
                             .font(.custom("TheyPerished", size: 28))
+                            .multilineTextAlignment(.center)
                     }
                     .padding(.top, 80)
                     .frame(maxWidth: .infinity, alignment: .center)
@@ -125,8 +127,12 @@ struct RegistrationScreen: View {
                 }
             }
             .padding(.horizontal, 24)
+            .padding(.vertical, 24)
         }
         .uiReturnKeyType(.next)
+        .background(
+            LinearGradient(gradient: Gradient(colors: [.white, .lightBlue, .lightOrange]), startPoint: .top, endPoint: .bottom).opacity(0.7)
+        )
     }
     
     private func registrationAction() {

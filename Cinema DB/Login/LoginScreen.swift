@@ -50,9 +50,11 @@ struct LoginScreen: View{
                     VStack(alignment: .center) {
                         Text("Already have an account?")
                             .font(.custom("8bitOperatorPlus-Bold", size: 22))
+                            .multilineTextAlignment(.center)
                         
                         Text("Let's go fun !")
                             .font(.custom("TheyPerished", size: 28))
+                            .multilineTextAlignment(.center)
                     }
                     .padding(.top, 80)
                     .frame(maxWidth: .infinity, alignment: .center)
@@ -107,8 +109,12 @@ struct LoginScreen: View{
                 }
             }
             .padding(.horizontal, 24)
+            .padding(.vertical, 24)
         }
         .uiReturnKeyType(.next)
+        .background(
+            LinearGradient(gradient: Gradient(colors: [.white, .red, .gray]), startPoint: .top, endPoint: .bottom).opacity(0.7)
+        )
     }
     
     private func loginAction() {
