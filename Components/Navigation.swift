@@ -46,7 +46,7 @@ extension UINavigationController {
     }
 }
 
-final class NavigationRouter: ObservableObject {
+class NavigationRouter: ObservableObject {
 
     var navigationvc: UINavigationController?
     private var destinations: [ObjectIdentifier: any NavigationDestination] = [:]

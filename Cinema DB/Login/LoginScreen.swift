@@ -21,7 +21,7 @@ struct LoginScreen: View{
     @Environment(\.navigationRouter) private var router
     @EnvironmentObject private var authManager: AuthManager
     
-    @State private var email: InputState = .init {
+    @State var email: InputState = .init {
         NonEmpty()
         WrongFormatValidator(regex: Constants.Regexes.emailRegex)
             .mapError { _ in
@@ -29,13 +29,13 @@ struct LoginScreen: View{
             }
     }
     
-    @State private var password: InputState = .init {
+    @State var password: InputState = .init {
         NonEmpty()
     }
     
-    @FocusState private var focusState: Focus?
-   
-    private var isButtonEnable: Bool {
+    @FocusState var focusState: Focus?
+    
+    var isButtonEnable: Bool {
         guard !email.text.isEmpty,
               !password.text.isEmpty else {
             return true
@@ -117,7 +117,7 @@ struct LoginScreen: View{
         )
     }
     
-    private func loginAction() {
+    func loginAction() {
         email.validate()
         password.validate()
         
@@ -133,7 +133,7 @@ struct LoginScreen: View{
                     
                     router.push(destination: HomePage(), replaceStack: true)
                 }
-              
+                
             } catch {
                 Log(error: error)
             }
@@ -147,9 +147,9 @@ struct LoginScreen: View{
     }
 }
 
-private enum EmailError: Error, LocalizedError {
+enum EmailError: Error, LocalizedError {
     case emailWrongFormat
-
+    
     var errorDescription: String? {
         switch self {
         case .emailWrongFormat:

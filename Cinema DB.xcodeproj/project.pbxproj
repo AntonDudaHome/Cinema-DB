@@ -57,7 +57,19 @@
 		67E250132B5379B500C2C28C /* DetailsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E250122B5379B500C2C28C /* DetailsScreen.swift */; };
 		67E250152B53AF9500C2C28C /* CinemaCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E250142B53AF9500C2C28C /* CinemaCardView.swift */; };
 		67E250172B53B2CC00C2C28C /* Binding+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67E250162B53B2CC00C2C28C /* Binding+Extension.swift */; };
+		67ED0C972D09C4DD00C92337 /* Cinema_DBTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ED0C962D09C4DD00C92337 /* Cinema_DBTests.swift */; };
+		67ED0C9E2D09C62000C92337 /* LoginScreenTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67ED0C9D2D09C62000C92337 /* LoginScreenTest.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		67ED0C982D09C4DD00C92337 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 676952C12B336F790060F568 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 676952C82B336F790060F568;
+			remoteInfo = "Cinema DB";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		670206282B40803800CAB08B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -91,6 +103,9 @@
 		67E250122B5379B500C2C28C /* DetailsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScreen.swift; sourceTree = "<group>"; };
 		67E250142B53AF9500C2C28C /* CinemaCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CinemaCardView.swift; sourceTree = "<group>"; };
 		67E250162B53B2CC00C2C28C /* Binding+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding+Extension.swift"; sourceTree = "<group>"; };
+		67ED0C942D09C4DD00C92337 /* Cinema DBTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Cinema DBTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		67ED0C962D09C4DD00C92337 /* Cinema_DBTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cinema_DBTests.swift; sourceTree = "<group>"; };
+		67ED0C9D2D09C62000C92337 /* LoginScreenTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +134,13 @@
 				67E24FE72B4F523D00C2C28C /* FirebaseFunctions in Frameworks */,
 				67E24FEB2B4F523D00C2C28C /* FirebaseMLModelDownloader in Frameworks */,
 				67E24FD32B4F523D00C2C28C /* FirebaseABTesting in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67ED0C912D09C4DD00C92337 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,6 +197,7 @@
 			children = (
 				676952DE2B3426F00060F568 /* Components */,
 				676952CB2B336F790060F568 /* Cinema DB */,
+				67ED0C952D09C4DD00C92337 /* Cinema DBTests */,
 				676952CA2B336F790060F568 /* Products */,
 				67E250032B4F60C800C2C28C /* Frameworks */,
 			);
@@ -184,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				676952C92B336F790060F568 /* Cinema DB.app */,
+				67ED0C942D09C4DD00C92337 /* Cinema DBTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -282,6 +306,15 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
+		67ED0C952D09C4DD00C92337 /* Cinema DBTests */ = {
+			isa = PBXGroup;
+			children = (
+				67ED0C962D09C4DD00C92337 /* Cinema_DBTests.swift */,
+				67ED0C9D2D09C62000C92337 /* LoginScreenTest.swift */,
+			);
+			path = "Cinema DBTests";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -325,6 +358,24 @@
 			productReference = 676952C92B336F790060F568 /* Cinema DB.app */;
 			productType = "com.apple.product-type.application";
 		};
+		67ED0C932D09C4DD00C92337 /* Cinema DBTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 67ED0C9A2D09C4DD00C92337 /* Build configuration list for PBXNativeTarget "Cinema DBTests" */;
+			buildPhases = (
+				67ED0C902D09C4DD00C92337 /* Sources */,
+				67ED0C912D09C4DD00C92337 /* Frameworks */,
+				67ED0C922D09C4DD00C92337 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				67ED0C992D09C4DD00C92337 /* PBXTargetDependency */,
+			);
+			name = "Cinema DBTests";
+			productName = "Cinema DBTests";
+			productReference = 67ED0C942D09C4DD00C92337 /* Cinema DBTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -335,11 +386,15 @@
 				KnownAssetTags = (
 					New,
 				);
-				LastSwiftUpdateCheck = 1500;
+				LastSwiftUpdateCheck = 1530;
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					676952C82B336F790060F568 = {
 						CreatedOnToolsVersion = 15.0;
+					};
+					67ED0C932D09C4DD00C92337 = {
+						CreatedOnToolsVersion = 15.3;
+						TestTargetID = 676952C82B336F790060F568;
 					};
 				};
 			};
@@ -362,6 +417,7 @@
 			projectRoot = "";
 			targets = (
 				676952C82B336F790060F568 /* Cinema DB */,
+				67ED0C932D09C4DD00C92337 /* Cinema DBTests */,
 			);
 		};
 /* End PBXProject section */
@@ -378,6 +434,13 @@
 				6716B7FB2B4D30C60045CC54 /* TheyPerished.ttf in Resources */,
 				6716B7FE2B4D30F30045CC54 /* 8bitOperatorPlus-Regular.ttf in Resources */,
 				676952D12B336F840060F568 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67ED0C922D09C4DD00C92337 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,7 +476,24 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		67ED0C902D09C4DD00C92337 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				67ED0C972D09C4DD00C92337 /* Cinema_DBTests.swift in Sources */,
+				67ED0C9E2D09C62000C92337 /* LoginScreenTest.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		67ED0C992D09C4DD00C92337 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 676952C82B336F790060F568 /* Cinema DB */;
+			targetProxy = 67ED0C982D09C4DD00C92337 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		676952D52B336F840060F568 /* Debug */ = {
@@ -605,6 +685,44 @@
 			};
 			name = Release;
 		};
+		67ED0C9B2D09C4DD00C92337 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D54CNDXJX6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "---.Cinema-DBTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cinema DB.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cinema DB";
+			};
+			name = Debug;
+		};
+		67ED0C9C2D09C4DD00C92337 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = D54CNDXJX6;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "---.Cinema-DBTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cinema DB.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Cinema DB";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -622,6 +740,15 @@
 			buildConfigurations = (
 				676952D82B336F840060F568 /* Debug */,
 				676952D92B336F840060F568 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		67ED0C9A2D09C4DD00C92337 /* Build configuration list for PBXNativeTarget "Cinema DBTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				67ED0C9B2D09C4DD00C92337 /* Debug */,
+				67ED0C9C2D09C4DD00C92337 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
