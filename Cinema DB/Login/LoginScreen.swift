@@ -48,11 +48,11 @@ struct LoginScreen: View{
             VStack(spacing: 16) {
                 VStack(alignment: .center) {
                     VStack(alignment: .center) {
-                        Text("Already have an account?")
+                        Text("Did you already have an account?")
                             .font(.custom("8bitOperatorPlus-Bold", size: 22))
                             .multilineTextAlignment(.center)
                         
-                        Text("Let's go fun !")
+                        Text("Let's go fun !!!")
                             .font(.custom("TheyPerished", size: 28))
                             .multilineTextAlignment(.center)
                     }
