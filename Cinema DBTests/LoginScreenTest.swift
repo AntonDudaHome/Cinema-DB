@@ -10,7 +10,7 @@ import SwiftUI
 import FirebaseAuth
 
 @testable import Cinema_DB
-
+// Unit Tests for login screen
 @MainActor
 final class LoginScreenTests: XCTestCase {
 
